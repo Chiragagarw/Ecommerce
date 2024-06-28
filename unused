@@ -1,0 +1,14 @@
+/*
+// Set up disk userstorage
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    // Define the folder to store the files
+    cb(null, 'uploads/');
+  },
+  filename: (req, file, cb) => {
+    // Define the filename
+    
+    cb(null, file.originalname);
+  }
+});
+const upload = multer({ storage: storage });*/
