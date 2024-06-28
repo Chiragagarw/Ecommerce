@@ -42,20 +42,7 @@ const { find } = require('../model/product');
         const newUser = new User({
             ...req.body,
             password: hashedPassword
-        })pagination = {
-          currentPage: page,
-          totalPages: Math.ceil(totalUsers / limit),
-          pageSize: limit,
-          totalUsers: totalUsers,
-      };
-
-      // Return the users and pagination info
-      res.json({ users, pagination });
-  } catch (error) {
-      res.status(500).json({ message: error.message });
-  }
-};
-*/;
+        });
         // If a file was uploaded, add its path to the user data
         if (req.file) {
           newUser.profileimage = req.file.path; // Or any other field you want to store the image path
@@ -92,7 +79,20 @@ const { find } = require('../model/product');
       const totalUsers = await User.countDocuments();
 
       // Create pagination info
-      const 
+      const pagination = {
+          currentPage: page,
+          totalPages: Math.ceil(totalUsers / limit),
+          pageSize: limit,
+          totalUsers: totalUsers,
+      };
+
+      // Return the users and pagination info
+      res.json({ users, pagination });
+  } catch (error) {
+      res.status(500).json({ message: error.message });
+  }
+};
+*/
 
 exports.getAllUser = async (req, res) => {
     // Get page, limit, and search query from query params
